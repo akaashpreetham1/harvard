@@ -18,12 +18,14 @@
   if (toggle && nav) {
     const closeMenu = () => {
       toggle.setAttribute('aria-expanded', 'false');
-      nav.style.display = '';
+      nav.classList.remove('is-open');
+      document.body.classList.remove('is-nav-open');
     };
     toggle.addEventListener('click', () => {
       const expanded = toggle.getAttribute('aria-expanded') === 'true';
       toggle.setAttribute('aria-expanded', String(!expanded));
-      nav.style.display = expanded ? '' : 'block';
+      nav.classList.toggle('is-open');
+      document.body.classList.toggle('is-nav-open');
       if (!expanded) {
         // Move focus to first link when opened
         const first = nav.querySelector('a');
@@ -36,24 +38,48 @@
       if (e.key === 'Escape') closeMenu();
     });
   }
+
+  // Hero Video Audio Toggle
+  const video = document.getElementById('hero-video');
+  const audioToggle = document.getElementById('audio-toggle');
+  if (video && audioToggle) {
+    const iconMute = audioToggle.querySelector('.icon-mute');
+    const iconUnmute = audioToggle.querySelector('.icon-unmute');
+    audioToggle.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (video.muted) {
+        iconMute.style.display = 'block';
+        iconUnmute.style.display = 'none';
+      } else {
+        iconMute.style.display = 'none';
+        iconUnmute.style.display = 'block';
+      }
+    });
+  }
 })();
 
 // Accessible accordion behavior (initiatives)
 (function () {
   const triggers = document.querySelectorAll('.accordion__trigger');
-  if (!triggers.length) return; // No accordion when using static cards
+  if (!triggers.length) return;
 
   triggers.forEach((btn, index) => {
     const panelId = btn.getAttribute('aria-controls');
     const panel = panelId ? document.getElementById(panelId) : null;
-    if (!panel) return;
-    // Open all by default
-    btn.setAttribute('aria-expanded', 'true');
-    panel.hidden = false;
+    const item = btn.closest('.accordion__item');
+    if (!panel || !item) return;
+
+    const updateState = (isOpen) => {
+      btn.setAttribute('aria-expanded', String(isOpen));
+      item.classList.toggle('is-collapsed', !isOpen);
+    };
+
+    // Initial state: first is open, others are collapsed
+    updateState(index === 0);
+
     btn.addEventListener('click', () => {
       const expanded = btn.getAttribute('aria-expanded') === 'true';
-      btn.setAttribute('aria-expanded', String(!expanded));
-      panel.hidden = expanded;
+      updateState(!expanded);
     });
     btn.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -80,5 +106,3 @@
   const yearSpan = document.getElementById('year');
   if (yearSpan) yearSpan.textContent = String(new Date().getFullYear());
 })();
-
-

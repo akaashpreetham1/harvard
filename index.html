@@ -1,80 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Akaash Preetham — Section B</title>
-    <meta name="description" content="Campaign website for Harvard Student Representative candidate Akaash Preetham. Clean, professional, accessible, and fast." />
-    <link rel="canonical" href="https://akaashpreetham1.github.io/harvard/" />
 
-    <meta property="og:title" content="Akaash Preetham — Harvard Student Representative" />
-    <meta property="og:description" content="Clean, professional, accessible campaign site. Slogan comes here." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://akaashpreetham1.github.io/harvard/" />
-    <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D5603AQEvUMdgt1qEfQ/profile-displayphoto-crop_800_800/B56ZfBzH2XHoAI-/0/1751303094074?e=1761177600&v=beta&t=HDTh8ykGKt1qezFv6ZK_jAP0QbC-GLAGUeL43hY7STU" />
-    <meta name="twitter:card" content="summary_large_image" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Akaash Preetham — Harvard Student Representative</title>
+  <meta name="description"
+    content="Campaign website for Harvard Student Representative candidate Akaash Preetham. Clean, professional, accessible, and fast." />
+  <link rel="canonical" href="https://akaashpreetham1.github.io/harvard/" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
+  <meta property="og:title" content="Akaash Preetham — Harvard Student Representative" />
+  <meta property="og:description"
+    content="Clean, professional, accessible campaign site. Experience, Dedication, Results." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://akaashpreetham1.github.io/harvard/" />
+  <meta property="og:image"
+    content="https://media.licdn.com/dms/image/v2/D5603AQEvUMdgt1qEfQ/profile-displayphoto-crop_800_800/B56ZfBzH2XHoAI-/0/1751303094074?e=1761177600&v=beta&t=HDTh8ykGKt1qezFv6ZK_jAP0QbC-GLAGUeL43hY7STU" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
-  </head>
-  <body class="home">
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header" role="banner">
-      <div class="container header__inner">
-        <a class="brand" href="index.html">Section B</a>
-        <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
-          <span class="nav-toggle__bar"></span>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body class="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">Harvard 2026</a>
+      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" data-nav>Home</a></li>
+          <li><a href="about.html" data-nav>About</a></li>
+          <li><a href="initiatives.html" data-nav>Initiatives</a></li>
+          <li><a href="testimonials.html" data-nav>Testimonials</a></li>
+          <li><a href="contact.html" data-nav>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__bg" aria-hidden="true">
+        <video id="hero-video" class="hero__video" autoplay muted loop playsinline>
+          <source src="assets/Vote Preetham Henry.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <button id="audio-toggle" class="video-audio-toggle" aria-label="Toggle Audio">
+          <svg class="icon-mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+            <line x1="23" y1="9" x2="17" y2="15"></line>
+            <line x1="17" y1="9" x2="23" y2="15"></line>
+          </svg>
+          <svg class="icon-unmute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+          </svg>
         </button>
-        <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-          <ul>
-            <li><a href="index.html" data-nav>Home</a></li>
-            <li><a href="about.html" data-nav>About</a></li>
-            <li><a href="initiatives.html" data-nav>Initiatives</a></li>
-            <li><a href="assets/AkaashPreethamSenthilKumar.pdf" download="Position Paper - Akaash">Position Paper</a></li>
-          </ul>
-        </nav>
       </div>
-    </header>
-
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero__bg" aria-hidden="true"></div>
-        <div class="container hero__content">
-          <h1 id="hero-title" class="hero__title">To B or not to B. The choice is ours</h1>
-          <h3 class="hero__subtitle text-2xl bold font-lato mb-12">I, Akaash Preetham, am running for Section President to help build a high-performing, tightly knit and inclusive Section B</h3>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="about.html">Learn more about me</a>
-          </div>
-          <br>
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="initiatives.html">Proposed initiatives</a>
-          </div>
+      <div class="container hero__content">
+        <h1 id="hero-title" class="hero__title">Akaash Preetham & Dmitriy Henry</h1>
+        <p class="hero__subtitle">Your voices in Student Government</p>
+        <p class="hero__slogan">Experience, Dedication, Results.</p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="about.html">Learn more about us</a>
         </div>
-      </section>
+      </div>
+    </section>
 
-<!--       <section class="home-quote" aria-label="Harvard quote">
-        <div class="container">
-          <blockquote>
-            “Veritas — truth pursued with courage and humility — guides everything we strive for.”
-            <cite>Harvard Community</cite>
-          </blockquote>
-        </div>
-      </section> -->
-    </main>
+    <section class="home-quote" aria-label="Harvard quote">
+      <div class="container">
+        <blockquote>
+          “Veritas — truth pursued with courage and humility — guides everything we strive for.”
+          <cite>Harvard Community</cite>
+        </blockquote>
+      </div>
+    </section>
+  </main>
 
-    <footer class="site-footer">
-      <div class="container"></div>
-    </footer>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Harvard 2026. Made with Section B pride.</p>
+    </div>
+  </footer>
 
-    <script src="js/main.js" defer></script>
-  </body>
-  </html>
+  <script src="js/main.js" defer></script>
+</body>
 
-
+</html>
