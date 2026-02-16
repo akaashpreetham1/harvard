@@ -9,6 +9,24 @@
     /* Expanded padding with reduced sides */
     padding: var(--space-4) var(--space-3);
   }
+
+  .hero {
+    padding-bottom: 0;
+  }
+
+  .hero__title {
+    font-size: 2.25rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero__slogan {
+    font-size: 1rem;
+  }
 }
 
 /* Tablet */
