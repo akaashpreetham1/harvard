@@ -4,33 +4,553 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Akaash Preetham — Harvard Student Representative</title>
-  <meta name="description"
-    content="Campaign website for Harvard Student Representative candidate Akaash Preetham. Clean, professional, accessible, and fast." />
+  <title>Akaash Preetham & Dimitri Henry — SA Co-Presidents 2027</title>
+  <meta name="description" content="Vote for Akaash Preetham & Dimitri Henry for SA Co-Presidents, HBS Class of 2027. February 26, 2026." />
   <link rel="canonical" href="https://akaashpreetham1.github.io/harvard/" />
 
-  <meta property="og:title" content="Akaash Preetham — Harvard Student Representative" />
-  <meta property="og:description"
-    content="Clean, professional, accessible campaign site. Experience, Dedication, Results." />
+  <meta property="og:title" content="Vote Preetham & Henry — SA Co-Presidents 2027" />
+  <meta property="og:description" content="Opportunity. Connection. Experience. Vote February 26, 2026." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://akaashpreetham1.github.io/harvard/" />
-  <meta property="og:image"
-    content="https://media.licdn.com/dms/image/v2/D5603AQEvUMdgt1qEfQ/profile-displayphoto-crop_800_800/B56ZfBzH2XHoAI-/0/1751303094074?e=1761177600&v=beta&t=HDTh8ykGKt1qezFv6ZK_jAP0QbC-GLAGUeL43hY7STU" />
+  <meta property="og:image" content="https://media.licdn.com/dms/image/v2/D5603AQEvUMdgt1qEfQ/profile-displayphoto-crop_800_800/B56ZfBzH2XHoAI-/0/1751303094074?e=1761177600&v=beta&t=HDTh8ykGKt1qezFv6ZK_jAP0QbC-GLAGUeL43hY7STU" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --cream-dark: #ede7d9;
+      --border: #d4c9b0;
+      --ink: #1a1a1a;
+      --ink-mid: #444;
+      --ink-light: #888;
+      --crimson: #C41E3A;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      margin: 0;
+    }
+
+    /* ── VOTE BANNER (sticky top) ── */
+    .vote-banner {
+      background: var(--crimson);
+      color: #fff;
+      text-align: center;
+      padding: 12px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .vote-banner__text {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .vote-banner__date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0;
+    }
+
+    .vote-banner__divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(255,255,255,0.3);
+    }
+
+    .vote-banner__names {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ── HERO: two column ── */
+    .home-hero {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      min-height: calc(100vh - 44px - 64px); /* subtract banner + nav */
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Left: editorial text */
+    .home-hero__text {
+      padding: 80px 60px 80px 60px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .home-hero__top {}
+
+    .home-hero__tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .home-hero__tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--crimson);
+    }
+
+    .home-hero__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(44px, 5vw, 72px);
+      font-weight: 700;
+      line-height: 0.95;
+      color: var(--ink);
+      margin-bottom: 32px;
+      letter-spacing: -1px;
+    }
+    .home-hero__headline em {
+      font-style: italic;
+      color: var(--crimson);
+    }
+
+    .home-hero__subhead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      font-weight: 300;
+      font-style: italic;
+      border-left: 2px solid var(--crimson);
+      padding-left: 20px;
+      margin-bottom: 48px;
+      max-width: 360px;
+    }
+
+    /* Pillars list */
+    .home-hero__pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .home-hero__pillar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: padding-left 0.2s;
+    }
+    .home-hero__pillar:hover { padding-left: 8px; }
+
+    .home-hero__pillar-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 14px;
+      color: var(--crimson);
+      font-weight: 700;
+      width: 24px;
+      flex-shrink: 0;
+    }
+    .home-hero__pillar-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--ink);
+      flex: 1;
+    }
+    .home-hero__pillar-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+    .home-hero__pillar-arrow {
+      color: var(--border);
+      font-size: 16px;
+      transition: color 0.2s, transform 0.2s;
+    }
+    .home-hero__pillar:hover .home-hero__pillar-arrow {
+      color: var(--crimson);
+      transform: translateX(4px);
+    }
+
+    /* Bottom: candidate names */
+    .home-hero__candidates {
+      display: flex;
+      gap: 32px;
+      padding-top: 32px;
+    }
+    .home-hero__candidate {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .home-hero__candidate-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .home-hero__candidate-meta {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--crimson);
+    }
+    .home-hero__candidate-divider {
+      width: 1px;
+      background: var(--border);
+      align-self: stretch;
+    }
+
+    /* Right: video */
+    .home-hero__video-wrap {
+      background: var(--ink);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-hero__video-label {
+      position: absolute;
+      top: 28px;
+      left: 28px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      z-index: 2;
+    }
+
+    .home-hero__video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Custom video controls overlay */
+    .home-hero__controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 28px;
+      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      z-index: 2;
+    }
+
+    .home-hero__ctrl-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .home-hero__ctrl-btn:hover {
+      border-color: #fff;
+      background: rgba(255,255,255,0.1);
+    }
+    .home-hero__ctrl-btn svg { width: 14px; height: 14px; }
+
+    .home-hero__progress {
+      flex: 1;
+      height: 2px;
+      background: rgba(255,255,255,0.2);
+      cursor: pointer;
+      position: relative;
+    }
+    .home-hero__progress-fill {
+      height: 100%;
+      background: var(--crimson);
+      width: 0%;
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
+
+    .home-hero__time {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.5);
+      flex-shrink: 0;
+    }
+
+    .home-hero__fullscreen-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .home-hero__fullscreen-btn:hover { border-color: #fff; }
+    .home-hero__fullscreen-btn svg { width: 14px; height: 14px; }
+
+    /* ── STATS BAR ── */
+    .home-stats {
+      background: var(--ink);
+      padding: 0 60px;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #222;
+      overflow: hidden;
+    }
+
+    .home-stats__item {
+      flex: 1;
+      padding: 28px 0;
+      text-align: center;
+      border-right: 1px solid #2a2a2a;
+    }
+    .home-stats__item:last-child { border-right: none; }
+
+    .home-stats__num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .home-stats__label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #444;
+    }
+
+
+
+    /* ── VOTE CTA SECTION ── */
+    .home-vote {
+      background: var(--ink);
+      padding: 100px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .home-vote__text {}
+    .home-vote__label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 20px;
+    }
+    .home-vote__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 5vw, 72px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .home-vote__headline em {
+      font-style: italic;
+      color: var(--crimson);
+    }
+    .home-vote__body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .home-vote__right {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    /* Big date display */
+    .home-vote__date-card {
+      border: 1px solid #2a2a2a;
+      padding: 48px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .home-vote__date-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    .home-vote__date {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 4vw, 56px);
+      letter-spacing: 4px;
+      color: var(--cream);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .home-vote__date-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-style: italic;
+      color: var(--crimson);
+    }
+
+    .home-vote__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .home-vote__btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 18px 28px;
+      transition: gap 0.2s, background 0.2s;
+    }
+    .home-vote__btn--primary {
+      background: var(--crimson);
+      color: #fff;
+    }
+    .home-vote__btn--primary:hover { background: #a01830; }
+    .home-vote__btn--outline {
+      border: 1px solid #2a2a2a;
+      color: #555;
+    }
+    .home-vote__btn--outline:hover { border-color: #444; color: #888; }
+    .home-vote__btn-arrow { font-size: 14px; }
+
+    /* ── QUOTE STRIP ── */
+    .home-quote-strip {
+      background: var(--crimson);
+      padding: 40px 60px;
+      overflow: hidden;
+    }
+    .home-quote-strip__inner {
+      display: flex;
+      align-items: baseline;
+      gap: 40px;
+    }
+    .home-quote-strip__quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.5vw, 32px);
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.4;
+    }
+    .home-quote-strip__quote strong {
+      font-weight: 700;
+      font-style: normal;
+      color: #fff;
+    }
+    .home-quote-strip__attr {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .vote-banner { flex-wrap: wrap; gap: 8px; padding: 10px 16px; }
+      .vote-banner__divider { display: none; }
+
+      .home-hero { grid-template-columns: 1fr; min-height: auto; }
+      .home-hero__text {
+        padding: 48px 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+        gap: 32px;
+      }
+      .home-hero__video-wrap { min-height: 60vw; }
+
+      .home-stats { padding: 0 24px; flex-wrap: wrap; }
+      .home-stats__item { flex: 1 0 50%; border-right: none; border-bottom: 1px solid #2a2a2a; }
+
+      .home-vote { grid-template-columns: 1fr; padding: 60px 24px; gap: 48px; }
+
+      .home-quote-strip { padding: 32px 24px; }
+      .home-quote-strip__inner { flex-direction: column; gap: 16px; }
+    }
+  </style>
 </head>
 
 <body class="home">
+
+  <!-- ── VOTE BANNER ── -->
+  <div class="vote-banner" role="banner" aria-label="Vote reminder">
+    <span class="vote-banner__text">Vote for</span>
+    <span class="vote-banner__names">Preetham & Henry</span>
+    <span class="vote-banner__divider"></span>
+    <span class="vote-banner__text">SA Co-Presidents</span>
+    <span class="vote-banner__divider"></span>
+    <span class="vote-banner__date">February 26, 2026</span>
+  </div>
+
+  <!-- ── NAV ── -->
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner">
     <div class="container header__inner">
-      <a class="brand" href="index.html">Class of 2027</a>
+      <a class="brand" href="index.html">Harvard 2027</a>
       <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="nav-toggle__bar"></span>
@@ -42,8 +562,7 @@
           <li><a href="index.html" data-nav>Home</a></li>
           <li><a href="about.html" data-nav>About</a></li>
           <li><a href="initiatives.html" data-nav>Platforms</a></li>
-          <!-- <li><a href="testimonials.html" data-nav>Testimonials</a></li> -->
-          <li><a href="assets/HenryPreetham.pdf" download="Position Paper - Akaash Dimitri">Position Paper</a></li>
+          <li><a href="assets/HenryPreetham.pdf" download="Position Paper">Position Paper</a></li>
           <li><a href="contact.html" data-nav>Contact</a></li>
         </ul>
       </nav>
@@ -51,66 +570,249 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero__content">
-        <h1 id="hero-title" class="hero__title">Akaash Preetham & Dimitri Henry</h1>
-        <p class="hero__subtitle">Opportunity, Community & One HBS</p>
-        <br/>
-        <p class="hero-body">Watch our video</p>
-        <!-- <div class="hero__cta">
-          <a class="btn btn--primary" href="about.html">Learn more about us</a>
-        </div> -->
-      </div>
-      <div class="container">
-        <div class="hero__bg" aria-hidden="true">
-          <video id="hero-video" class="hero__video" loop playsinline controls autoplay>
-            <source src="assets/Vote Akaash Dimitri.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          <div class="video-controls">
-            <button id="play-pause-toggle" class="video-btn" aria-label="Toggle Play">
-              <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-              <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round" style="display:none;">
-                <rect x="6" y="4" width="4" height="16"></rect>
-                <rect x="14" y="4" width="4" height="16"></rect>
-              </svg>
-            </button>
-            <button id="fullscreen-toggle" class="video-btn" aria-label="Toggle Fullscreen">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3">
-                </path>
-              </svg>
-            </button>
+
+    <!-- ── HERO ── -->
+    <section class="home-hero" aria-label="Campaign introduction">
+
+      <!-- Left: editorial text -->
+      <div class="home-hero__text">
+        <div class="home-hero__top">
+          <div class="home-hero__tag">SA Co-Presidents · Class of 2027</div>
+
+          <h1 class="home-hero__headline">
+            The HBS<br/>you came<br/><em>here for.</em>
+          </h1>
+
+          <p class="home-hero__subhead">
+            You chose HBS for a reason. You had expectations. We're running to make sure HBS delivers on every single one of them.
+          </p>
+
+          <nav class="home-hero__pillars" aria-label="Platform pillars">
+            <a class="home-hero__pillar" href="initiatives.html#opportunity">
+              <span class="home-hero__pillar-num">01</span>
+              <span class="home-hero__pillar-name">Opportunity</span>
+              <span class="home-hero__pillar-tag">Access for all</span>
+              <span class="home-hero__pillar-arrow">→</span>
+            </a>
+            <a class="home-hero__pillar" href="initiatives.html#connection">
+              <span class="home-hero__pillar-num">02</span>
+              <span class="home-hero__pillar-name">Connection</span>
+              <span class="home-hero__pillar-tag">One HBS, one Harvard</span>
+              <span class="home-hero__pillar-arrow">→</span>
+            </a>
+            <a class="home-hero__pillar" href="initiatives.html#experience">
+              <span class="home-hero__pillar-num">03</span>
+              <span class="home-hero__pillar-name">Experience</span>
+              <span class="home-hero__pillar-tag">The little things, done right</span>
+              <span class="home-hero__pillar-arrow">→</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="home-hero__candidates">
+          <div class="home-hero__candidate">
+            <div class="home-hero__candidate-name">Akaash Preetham</div>
+            <div class="home-hero__candidate-meta">Section B · Chennai, India</div>
           </div>
+          <div class="home-hero__candidate-divider"></div>
+          <div class="home-hero__candidate">
+            <div class="home-hero__candidate-name">Dimitri Henry</div>
+            <div class="home-hero__candidate-meta">Section J · HBS + HKS</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: video -->
+      <div class="home-hero__video-wrap">
+        <div class="home-hero__video-label">Campaign Video</div>
+
+        <video
+          id="hero-video"
+          class="home-hero__video"
+          loop
+          playsinline
+          muted
+          autoplay
+          preload="auto"
+        >
+          <source src="assets/Vote Akaash Dimitri.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Custom controls overlay -->
+        <div class="home-hero__controls">
+          <button class="home-hero__ctrl-btn" id="play-pause-btn" aria-label="Play / Pause">
+            <!-- Play icon (shown when paused) -->
+            <svg id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <!-- Pause icon (hidden when playing) -->
+            <svg id="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+          </button>
+
+          <div class="home-hero__progress" id="progress-bar" role="slider" aria-label="Video progress">
+            <div class="home-hero__progress-fill" id="progress-fill"></div>
+          </div>
+
+          <span class="home-hero__time" id="video-time">0:00</span>
+
+          <button class="home-hero__fullscreen-btn" id="fullscreen-btn" aria-label="Fullscreen">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ── STATS BAR ── -->
+    <div class="home-stats" aria-label="Campaign at a glance">
+      <div class="home-stats__item">
+        <div class="home-stats__num">900+</div>
+        <div class="home-stats__label">Classmates</div>
+      </div>
+      <div class="home-stats__item">
+        <div class="home-stats__num">10</div>
+        <div class="home-stats__label">Sections</div>
+      </div>
+      <div class="home-stats__item">
+        <div class="home-stats__num">3</div>
+        <div class="home-stats__label">Platforms</div>
+      </div>
+      <div class="home-stats__item">
+        <div class="home-stats__num">2</div>
+        <div class="home-stats__label">Section Presidents</div>
+      </div>
+      <div class="home-stats__item">
+        <div class="home-stats__num">1</div>
+        <div class="home-stats__label">Vote · Feb 26</div>
+      </div>
+    </div>
+
+
+
+    <!-- ── VOTE CTA ── -->
+    <section class="home-vote" aria-label="Vote call to action">
+      <div class="home-vote__text">
+        <div class="home-vote__label">Why it matters</div>
+        <h2 class="home-vote__headline">
+          Two years.<br/>One shot to<br/><em>get it right.</em>
+        </h2>
+        <p class="home-vote__body">
+          HBS is two years of your life. You came here for something specific — opportunities, connections, an experience worth remembering. We're running to make sure you get all of it. Not some of it.
+          <br/><br/>
+          As section presidents, we know the administration. We know how to navigate it, push it, and work with it. We're ready to do that for all 900 of you.
+        </p>
+      </div>
+
+      <div class="home-vote__right">
+        <div class="home-vote__date-card">
+          <div class="home-vote__date-label">Election Day</div>
+          <div class="home-vote__date">February 26</div>
+          <div class="home-vote__date-sub">2026 · Cast your vote</div>
+        </div>
+
+        <div class="home-vote__actions">
+          <a class="home-vote__btn home-vote__btn--primary" href="about.html">
+            <span>Meet the candidates</span>
+            <span class="home-vote__btn-arrow">→</span>
+          </a>
+          <a class="home-vote__btn home-vote__btn--outline" href="initiatives.html">
+            <span>Read the platform</span>
+            <span class="home-vote__btn-arrow">→</span>
+          </a>
+          <a class="home-vote__btn home-vote__btn--outline" href="contact.html">
+            <span>Share your concerns</span>
+            <span class="home-vote__btn-arrow">→</span>
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- <section class="home-quote" aria-label="Harvard quote">
-      <div class="container">
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="about.html">Learn more about us</a>
-        </div>  -->
-        <!-- <blockquote>
-          “Veritas — truth pursued with courage and humility — guides everything we strive for.”
-          <cite>Harvard Community</cite>
-        </blockquote> -->
-      <!-- </div>
-    </section> -->
+    <!-- ── QUOTE STRIP ── -->
+    <div class="home-quote-strip">
+      <div class="home-quote-strip__inner">
+        <p class="home-quote-strip__quote">
+          "You didn't come to HBS by accident. You came here for something. <strong>Let's make sure you get it.</strong>"
+        </p>
+        <span class="home-quote-strip__attr">Akaash & Dimitri · Class of 2027</span>
+      </div>
+    </div>
+
   </main>
 
+  <!-- ── FOOTER ── -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> Made by Class of 2027 </p>
+      <p>&copy; <span id="year"></span> Harvard 2027. Built with purpose.</p>
     </div>
   </footer>
 
   <script src="js/main.js" defer></script>
-</body>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
+    // ── Video controls ──
+    var video = document.getElementById('hero-video');
+    var playBtn = document.getElementById('play-pause-btn');
+    var iconPlay = document.getElementById('icon-play');
+    var iconPause = document.getElementById('icon-pause');
+    var progressFill = document.getElementById('progress-fill');
+    var progressBar = document.getElementById('progress-bar');
+    var timeDisplay = document.getElementById('video-time');
+    var fullscreenBtn = document.getElementById('fullscreen-btn');
+
+    function formatTime(s) {
+      var m = Math.floor(s / 60);
+      var sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    // Show pause icon when playing (autoplay starts muted)
+    video.addEventListener('play', function() {
+      iconPlay.style.display = 'none';
+      iconPause.style.display = 'block';
+    });
+    video.addEventListener('pause', function() {
+      iconPlay.style.display = 'block';
+      iconPause.style.display = 'none';
+    });
+
+    // Play/pause toggle — unmutes on first interaction
+    playBtn.addEventListener('click', function() {
+      if (video.paused) {
+        video.muted = false;
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    // Progress bar update
+    video.addEventListener('timeupdate', function() {
+      if (video.duration) {
+        var pct = (video.currentTime / video.duration) * 100;
+        progressFill.style.width = pct + '%';
+        timeDisplay.textContent = formatTime(video.currentTime);
+      }
+    });
+
+    // Seek on click
+    progressBar.addEventListener('click', function(e) {
+      var rect = progressBar.getBoundingClientRect();
+      var pct = (e.clientX - rect.left) / rect.width;
+      video.currentTime = pct * video.duration;
+    });
+
+    // Fullscreen
+    fullscreenBtn.addEventListener('click', function() {
+      if (video.requestFullscreen) video.requestFullscreen();
+      else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
+    });
+  </script>
+</body>
 </html>
