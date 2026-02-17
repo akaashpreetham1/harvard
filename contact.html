@@ -424,6 +424,75 @@
         flex-wrap: wrap;
       }
     }
+
+    /* ── VOTE BANNER ── */
+    .vote-banner {
+      background: #C41E3A;
+      color: #fff;
+      text-align: center;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .vote-banner__text {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .vote-banner__date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 700;
+      font-style: italic;
+    }
+    .vote-banner__divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(255,255,255,0.3);
+    }
+    .vote-banner__names {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ── NAV OVERRIDE ── */
+    .site-header {
+      background: #f5f0e8 !important;
+      border-bottom: 1px solid #d4c9b0 !important;
+      box-shadow: none !important;
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      color: #1a1a1a !important;
+      letter-spacing: 0 !important;
+      text-decoration: none !important;
+    }
+    .primary-nav a {
+      font-family: 'Space Mono', monospace !important;
+      font-size: 10px !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      color: #888 !important;
+      text-decoration: none !important;
+      transition: color 0.2s !important;
+      padding-bottom: 2px !important;
+    }
+    .primary-nav a:hover,
+    .primary-nav a[data-nav].active {
+      color: #C41E3A !important;
+      border-bottom: 1px solid #C41E3A !important;
+    }
+    .nav-toggle__bar { background: #1a1a1a !important; }
+
   </style>
 </head>
 
@@ -524,7 +593,7 @@
             <div class="contact-person__channel">
               <div class="contact-person__channel-label">Email</div>
               <div class="contact-person__channel-value">
-                <a href="mailto:apreetham@mba2027.hbs.edu">apreetham@mba2027.hbs.edu</a>
+                <a href="/cdn-cgi/l/email-protection#7d1c0d0f181809151c103d101f1c4f4d4f4a53151f0e53181908"><span class="__cf_email__" data-cfemail="3f5e4f4d5a5a4b575e527f525d5e0d0f0d0811575d4c115a5b4a">[email&#160;protected]</span></a>
               </div>
             </div>
             <div class="contact-person__channel">
@@ -556,7 +625,7 @@
             <div class="contact-person__channel">
               <div class="contact-person__channel-label">Email</div>
               <div class="contact-person__channel-value">
-                <a href="mailto:dhenry@mba2027.hbs.edu">dhenry@mba2027.hbs.edu</a>
+                <a href="/cdn-cgi/l/email-protection#b6d2ded3d8c4cff6dbd4d78486848198ded4c598d3d2c3"><span class="__cf_email__" data-cfemail="016569646f7378416c6360333133362f6963722f646574">[email&#160;protected]</span></a>
               </div>
             </div>
             <!--
@@ -597,15 +666,4 @@
 
   <!-- ─── FOOTER (unchanged) ─── -->
   <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Harvard 2027. Built with purpose.</p>
-    </div>
-  </footer>
-
-  <script src="js/main.js" defer></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-</body>
-</html>
+ 
