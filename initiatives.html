@@ -491,6 +491,75 @@
       .init-cta { grid-template-columns: 1fr; padding: 60px 24px; gap: 36px; }
       .init-cta__actions { flex-direction: row; flex-wrap: wrap; }
     }
+
+    /* ── VOTE BANNER ── */
+    .vote-banner {
+      background: #C41E3A;
+      color: #fff;
+      text-align: center;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .vote-banner__text {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    .vote-banner__date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 700;
+      font-style: italic;
+    }
+    .vote-banner__divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(255,255,255,0.3);
+    }
+    .vote-banner__names {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    /* ── NAV OVERRIDE ── */
+    .site-header {
+      background: #f5f0e8 !important;
+      border-bottom: 1px solid #d4c9b0 !important;
+      box-shadow: none !important;
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      color: #1a1a1a !important;
+      letter-spacing: 0 !important;
+      text-decoration: none !important;
+    }
+    .primary-nav a {
+      font-family: 'Space Mono', monospace !important;
+      font-size: 10px !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      color: #888 !important;
+      text-decoration: none !important;
+      transition: color 0.2s !important;
+      padding-bottom: 2px !important;
+    }
+    .primary-nav a:hover,
+    .primary-nav a[data-nav].active {
+      color: #C41E3A !important;
+      border-bottom: 1px solid #C41E3A !important;
+    }
+    .nav-toggle__bar { background: #1a1a1a !important; }
+
   </style>
 </head>
 
