@@ -2,67 +2,610 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contact — Akaash Preetham</title>
-    <meta name="description" content="Contact Akaash Preetham for inquiries and feedback." />
-    <link rel="canonical" href="https://akaashpreetham1.github.io/harvard/contact.html" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Preetham & Henry</title>
+  <meta name="description" content="Contact Akaash Preetham and Dimitri Henry — SA Co-President candidates for HBS Class of 2027." />
+  <link rel="canonical" href="https://akaashpreetham1.github.io/harvard/contact.html" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
-    <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --cream-dark: #ede7d9;
+      --border: #d4c9b0;
+      --ink: #1a1a1a;
+      --ink-mid: #444;
+      --ink-light: #888;
+      --crimson: #C41E3A;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── HERO ── */
+    .contact-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      min-height: 52vh;
+    }
+
+    .contact-hero__text {
+      padding: 80px 70px 80px 60px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-hero__tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contact-hero__tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--crimson);
+    }
+
+    .contact-hero__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 5.5vw, 80px);
+      font-weight: 700;
+      line-height: 0.93;
+      color: var(--ink);
+      margin-bottom: 36px;
+      letter-spacing: -1px;
+    }
+    .contact-hero__headline em {
+      font-style: italic;
+      color: var(--crimson);
+    }
+
+    .contact-hero__subhead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      font-weight: 300;
+      font-style: italic;
+      max-width: 420px;
+      border-left: 2px solid var(--crimson);
+      padding-left: 20px;
+    }
+
+    /* Right panel: dark, statement */
+    .contact-hero__statement {
+      background: var(--ink);
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-hero__statement-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 32px;
+    }
+
+    .contact-hero__statement-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.55;
+      color: #c8c0b0;
+      margin-bottom: 40px;
+    }
+    .contact-hero__statement-quote strong {
+      font-weight: 700;
+      font-style: normal;
+      color: #f5f0e8;
+    }
+
+    .contact-hero__statement-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--crimson);
+      text-decoration: none;
+      transition: gap 0.2s;
+    }
+    .contact-hero__statement-cta:hover { gap: 20px; }
+    .contact-hero__statement-cta::after {
+      content: '→';
+      font-size: 14px;
+    }
+
+    /* ── FORM SECTION ── */
+    .contact-form-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-form-wrap {
+      padding: 80px 70px 80px 60px;
+      border-right: 1px solid var(--border);
+    }
+
+    .contact-section-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 12px;
+    }
+    .contact-section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .contact-section-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 40px;
+      max-width: 400px;
+    }
+
+    /* Anonymous form card */
+    .contact-form-card {
+      background: var(--cream-dark);
+      border: 1px solid var(--border);
+      padding: 40px;
+    }
+
+    .contact-form-card__eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .contact-form-card__eyebrow::before {
+      content: '🔒';
+      font-size: 11px;
+    }
+
+    .contact-form-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .contact-form-card__desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--ink-light);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 28px;
+    }
+
+    .contact-form-card__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--crimson);
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 28px;
+      transition: background 0.2s, gap 0.2s;
+    }
+    .contact-form-card__btn:hover {
+      background: #a01830;
+      gap: 18px;
+    }
+    .contact-form-card__btn::after { content: '→'; font-size: 13px; }
+
+    .contact-form-card__note {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--ink-light);
+      margin-top: 16px;
+      font-style: italic;
+    }
+
+    /* ── DIRECT CONTACT PANEL ── */
+    .contact-direct {
+      padding: 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-person {
+      padding-bottom: 48px;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-person:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .contact-person__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+      line-height: 1;
+    }
+    .contact-person__role {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 28px;
+    }
+
+    .contact-person__channels {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-person__channel {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .contact-person__channel-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    .contact-person__channel-value {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--ink-mid);
+      font-weight: 400;
+    }
+
+    .contact-person__channel-value a {
+      color: var(--ink-mid);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+      padding-bottom: 1px;
+    }
+    .contact-person__channel-value a:hover {
+      color: var(--crimson);
+      border-color: var(--crimson);
+    }
+
+    /* ── BOTTOM BANNER ── */
+    .contact-banner {
+      background: var(--ink);
+      padding: 70px 60px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contact-banner__text {}
+    .contact-banner__label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    .contact-banner__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 52px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.1;
+    }
+    .contact-banner__title em {
+      font-style: italic;
+      color: var(--crimson);
+    }
+
+    .contact-banner__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+
+    .contact-banner__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 28px;
+      white-space: nowrap;
+      transition: gap 0.2s, background 0.2s;
+    }
+    .contact-banner__btn--primary {
+      background: var(--crimson);
+      color: #fff;
+    }
+    .contact-banner__btn--primary:hover { background: #a01830; gap: 18px; }
+    .contact-banner__btn--outline {
+      background: transparent;
+      border: 1px solid #333;
+      color: #666;
+    }
+    .contact-banner__btn--outline:hover { border-color: #555; color: #aaa; gap: 18px; }
+    .contact-banner__btn::after { content: '→'; font-size: 13px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .contact-hero,
+      .contact-form-section {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-hero__text {
+        padding: 60px 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .contact-hero__statement {
+        padding: 60px 24px;
+      }
+
+      .contact-form-wrap {
+        padding: 60px 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .contact-direct { padding: 60px 24px; }
+
+      .contact-banner {
+        grid-template-columns: 1fr;
+        padding: 60px 24px;
+        gap: 40px;
+      }
+      .contact-banner__actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header" role="banner">
-        <div class="container header__inner">
-            <a class="brand" href="index.html">Class of 2027</a>
-            <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="nav-toggle__bar"></span>
-                <span class="nav-toggle__bar"></span>
-                <span class="nav-toggle__bar"></span>
-            </button>
-            <nav id="primary-nav" class="primary-nav" aria-label="Primary">
-                <ul>
-                    <li><a href="index.html" data-nav>Home</a></li>
-                    <li><a href="about.html" data-nav>About</a></li>
-                    <li><a href="initiatives.html" data-nav>Initiatives</a></li>
-                    <!-- <li><a href="testimonials.html" data-nav>Testimonials</a></li> -->
-                    <li><a href="assets/HenryPreetham.pdf" download="Position Paper - Akaash">Position
-                            Paper</a></li>
-                    <li><a href="contact.html" data-nav>Contact</a></li>
-                </ul>
-            </nav>
+
+  <!-- ─── NAV (unchanged) ─── -->
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" role="banner">
+    <div class="container header__inner">
+      <a class="brand" href="index.html">Harvard 2027</a>
+      <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Primary">
+        <ul>
+          <li><a href="index.html" data-nav>Home</a></li>
+          <li><a href="about.html" data-nav>About</a></li>
+          <li><a href="initiatives.html" data-nav>Initiatives</a></li>
+          <li><a href="assets/HenryPreetham.pdf" download="Position Paper">Position Paper</a></li>
+          <li><a href="contact.html" data-nav>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ─── MAIN ─── -->
+  <main id="main">
+
+    <!-- ── HERO ── -->
+    <section class="contact-hero">
+
+      <div class="contact-hero__text">
+        <div class="contact-hero__tag">Get in touch · Class of 2027</div>
+        <h1 class="contact-hero__headline">
+          Let's<br/>talk<br/><em>about it.</em>
+        </h1>
+        <p class="contact-hero__subhead">
+          We're actively seeking inputs on pressing student concerns. This campaign starts with a conversation — not a speech.
+        </p>
+      </div>
+
+      <div class="contact-hero__statement">
+        <div class="contact-hero__statement-label">Why we're asking</div>
+        <p class="contact-hero__statement-quote">
+          You chose HBS for a reason. You had <strong>expectations</strong>. We want to know if we're meeting them — and if not, <strong>exactly what needs to change</strong>.
+        </p>
+        <a class="contact-hero__statement-cta" href="https://forms.gle/sTQ7aEGLLmdh7eTe7" target="_blank" rel="noopener noreferrer">
+          Share your concerns
+        </a>
+      </div>
+
+    </section>
+
+    <!-- ── FORM + DIRECT CONTACT ── -->
+    <section class="contact-form-section">
+
+      <!-- Anonymous form -->
+      <div class="contact-form-wrap">
+        <div class="contact-section-label">Anonymous Form</div>
+        <h2 class="contact-section-title">Say what you actually think.</h2>
+        <p class="contact-section-body">
+          No name required. No filter needed. We want your honest, unvarnished take on what's working, what's broken, and what would make HBS feel like the experience you came here for.
+        </p>
+
+        <div class="contact-form-card">
+          <div class="contact-form-card__eyebrow">100% Anonymous</div>
+          <div class="contact-form-card__title">Student Concerns & Suggestions</div>
+          <p class="contact-form-card__desc">
+            Takes 2 minutes. Your responses directly shape our platform and priorities. We read every single one.
+          </p>
+          <a class="contact-form-card__btn" href="https://forms.gle/sTQ7aEGLLmdh7eTe7" target="_blank" rel="noopener noreferrer">
+            Fill out the form
+          </a>
+          <p class="contact-form-card__note">* Your identity is never collected or shared.</p>
         </div>
-    </header>
+      </div>
 
-    <main id="main" class="container">
-        <h1>Contact Us</h1>
-        <section class="about__section">
-            <p class="about__lead">
-                We'd love to hear from you! We're actively seeking inputs on pressing student concerns and suggestions to co-create an HBS experience we'll remember for decades
-            </p>
-            <p>
-                Please fill out our <a href="https://forms.gle/sTQ7aEGLLmdh7eTe7" target="_blank"
-                    rel="noopener noreferrer">anonymous response form</a> to share your thoughts.
-            </p>
-            <br/>
-            <p class="about__lead">Or reach us at:</p>
-            <p><b>Akaash: </b>+1 (857) 320-8364; apreetham@mba2027.hbs.edu</p>
-            <p><b>Dimitri: </b>+1 (908) 591-7438; dhenry@mba2027.hbs.edu</p>
-        </section>
-    </main>
+      <!-- Direct contact -->
+      <div class="contact-direct">
+        <div class="contact-section-label">Direct Contact</div>
+        <h2 class="contact-section-title" style="margin-bottom:12px;">Or just reach out.</h2>
+        <p class="contact-section-body">Prefer a real conversation? Text, call, or email us directly. We mean it.</p>
 
-    <footer class="site-footer">
-        <div class="container"></div>
-    </footer>
+        <!-- Akaash -->
+        <div class="contact-person">
+          <div class="contact-person__name">Akaash Preetham</div>
+          <div class="contact-person__role">Section B · International Student · Chennai, India</div>
+          <div class="contact-person__channels">
+            <div class="contact-person__channel">
+              <div class="contact-person__channel-label">Phone</div>
+              <div class="contact-person__channel-value">
+                <a href="tel:+18573208364">+1 (857) 320-8364</a>
+              </div>
+            </div>
+            <div class="contact-person__channel">
+              <div class="contact-person__channel-label">Email</div>
+              <div class="contact-person__channel-value">
+                <a href="mailto:apreetham@mba2027.hbs.edu">apreetham@mba2027.hbs.edu</a>
+              </div>
+            </div>
+            <div class="contact-person__channel">
+              <div class="contact-person__channel-label">LinkedIn</div>
+              <div class="contact-person__channel-value">
+                <a href="https://in.linkedin.com/in/akaash-preetham" target="_blank" rel="noopener noreferrer">akaash-preetham</a>
+              </div>
+            </div>
+            <div class="contact-person__channel">
+              <div class="contact-person__channel-label">Instagram</div>
+              <div class="contact-person__channel-value">
+                <a href="https://www.instagram.com/akaashpreetham/" target="_blank" rel="noopener noreferrer">@akaashpreetham</a>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <script src="js/main.js" defer></script>
+        <!-- Dimitri -->
+        <div class="contact-person">
+          <div class="contact-person__name">Dimitri Henry</div>
+          <div class="contact-person__role">Section J · Dual Degree (HBS + HKS) · Flemington, NJ</div>
+          <div class="contact-person__channels">
+            <div class="contact-person__channel">
+              <div class="contact-person__channel-label">Phone</div>
+              <div class="contact-person__channel-value">
+                <a href="tel:+19085917438">+1 (908) 591-7438</a>
+              </div>
+            </div>
+            <div class="contact-person__channel">
+              <div class="contact-person__channel-label">Email</div>
+              <div class="contact-person__channel-value">
+                <a href="mailto:dhenry@mba2027.hbs.edu">dhenry@mba2027.hbs.edu</a>
+              </div>
+            </div>
+            <!--
+              ADD Dimitri's LinkedIn/Instagram below when available:
+              <div class="contact-person__channel">
+                <div class="contact-person__channel-label">LinkedIn</div>
+                <div class="contact-person__channel-value">
+                  <a href="DIMITRI_LINKEDIN_URL" target="_blank" rel="noopener noreferrer">dimitri-henry</a>
+                </div>
+              </div>
+            -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── BOTTOM BANNER ── -->
+    <div class="contact-banner">
+      <div class="contact-banner__text">
+        <div class="contact-banner__label">Ready to learn more?</div>
+        <h2 class="contact-banner__title">
+          Read the platform.<br/>
+          Meet the <em>candidates.</em>
+        </h2>
+      </div>
+      <div class="contact-banner__actions">
+        <a class="contact-banner__btn contact-banner__btn--primary" href="initiatives.html">
+          View Initiatives
+        </a>
+        <a class="contact-banner__btn contact-banner__btn--outline" href="about.html">
+          About Us
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ─── FOOTER (unchanged) ─── -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Harvard 2027. Built with purpose.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
 </body>
-
 </html>
