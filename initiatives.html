@@ -4,31 +4,503 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Initiatives — Akaash Preetham</title>
-  <meta name="description" content="Initiatives by category: academics, student life, careers, and advocacy." />
+  <title>Initiatives — Preetham & Henry</title>
+  <meta name="description" content="Our platform: Opportunity, Connection, and Experience for HBS Class of 2027." />
   <link rel="canonical" href="https://akaashpreetham1.github.io/harvard/initiatives.html" />
-
-  <meta property="og:title" content="Initiatives — Akaash Preetham" />
-  <meta property="og:description" content="Explore focus areas and concrete, achievable goals." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://akaashpreetham1.github.io/harvard/initiatives.html" />
-  <meta property="og:image"
-    content="https://media.licdn.com/dms/image/v2/D5603AQEvUMdgt1qEfQ/profile-displayphoto-crop_800_800/B56ZfBzH2XHoAI-/0/1751303094074?e=1761177600&v=beta&t=HDTh8ykGKt1qezFv6ZK_jAP0QbC-GLAGUeL43hY7STU" />
-  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --cream-dark: #ede7d9;
+      --border: #d4c9b0;
+      --ink: #1a1a1a;
+      --ink-mid: #444;
+      --ink-light: #888;
+      --crimson: #C41E3A;
+    }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── HERO ── */
+    .init-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+      min-height: 48vh;
+    }
+
+    .init-hero__text {
+      padding: 80px 70px 80px 60px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .init-hero__tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .init-hero__tag::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 1px;
+      background: var(--crimson);
+    }
+
+    .init-hero__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 5.5vw, 78px);
+      font-weight: 700;
+      line-height: 0.93;
+      color: var(--ink);
+      margin-bottom: 36px;
+      letter-spacing: -1px;
+    }
+    .init-hero__headline em {
+      font-style: italic;
+      color: var(--crimson);
+    }
+
+    .init-hero__subhead {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 19px;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      font-weight: 300;
+      font-style: italic;
+      max-width: 420px;
+      border-left: 2px solid var(--crimson);
+      padding-left: 20px;
+    }
+
+    /* Right: 3 platform numbers */
+    .init-hero__pillars {
+      background: var(--cream-dark);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .init-hero__pillar {
+      flex: 1;
+      padding: 36px 60px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      cursor: default;
+      transition: background 0.2s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .init-hero__pillar:last-child { border-bottom: none; }
+    .init-hero__pillar:hover { background: #e6dfd0; }
+
+    .init-hero__pillar-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: var(--border);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 48px;
+    }
+    .init-hero__pillar:hover .init-hero__pillar-num { color: var(--crimson); transition: color 0.2s; }
+
+    .init-hero__pillar-text {}
+    .init-hero__pillar-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .init-hero__pillar-tagline {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+
+    /* ── PLATFORM SECTIONS ── */
+    /* Each platform = full-width section */
+
+    .init-platform {
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Platform header bar */
+    .init-platform__header {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr 80px;
+      border-bottom: 1px solid var(--border);
+      min-height: 100px;
+    }
+
+    .init-platform__num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: var(--crimson);
+      border-right: 1px solid var(--border);
+    }
+
+    .init-platform__title-wrap {
+      padding: 32px 48px 32px 40px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .init-platform__label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 8px;
+    }
+    .init-platform__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .init-platform__summary {
+      padding: 32px 60px 32px 40px;
+      display: flex;
+      align-items: center;
+    }
+    .init-platform__summary p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      line-height: 1.75;
+      color: var(--ink-mid);
+      font-style: italic;
+      font-weight: 300;
+    }
+
+    /* Platform body: initiative cards */
+    .init-platform__body {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .init-card {
+      padding: 48px 40px;
+      border-right: 1px solid var(--border);
+    }
+    .init-card:last-child { border-right: none; }
+
+    .init-card__icon {
+      font-size: 24px;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .init-card__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .init-card__body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: #666;
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+
+    .init-card__items {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .init-card__item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--ink-mid);
+      line-height: 1.5;
+    }
+    .init-card__item::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--crimson);
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+
+    /* ── OWNER BADGE on platform ── */
+    .init-platform__owner {
+      padding: 20px 60px 20px 40px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--cream-dark);
+    }
+    .init-platform__owner-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+    }
+    .init-platform__owner-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .init-platform__owner-tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: var(--crimson);
+      padding: 4px 10px;
+      border: 1px solid var(--crimson);
+    }
+    .init-platform__owner-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--border);
+    }
+
+    /* ── HOW WE WORK SECTION ── */
+    .init-council {
+      background: var(--ink);
+      padding: 80px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .init-council__label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #444;
+      margin-bottom: 16px;
+    }
+    .init-council__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 3.5vw, 52px);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .init-council__title em { font-style: italic; color: var(--crimson); }
+    .init-council__body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: #666;
+      line-height: 1.9;
+      font-weight: 300;
+    }
+
+    .init-council__areas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+    .init-council__area {
+      background: #111;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .init-council__area-icon { font-size: 20px; }
+    .init-council__area-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--cream);
+    }
+    .init-council__area-desc {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 1px;
+      color: #444;
+      text-transform: uppercase;
+    }
+
+    /* ── BOTTOM CTA ── */
+    .init-cta {
+      padding: 80px 60px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      align-items: center;
+      border-top: 1px solid var(--border);
+      background: var(--cream-dark);
+    }
+
+    .init-cta__label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--crimson);
+      margin-bottom: 14px;
+    }
+    .init-cta__title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 3.5vw, 50px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .init-cta__title em { font-style: italic; color: var(--crimson); }
+
+    .init-cta__actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      flex-shrink: 0;
+    }
+    .init-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 28px;
+      white-space: nowrap;
+      transition: gap 0.2s, background 0.2s;
+    }
+    .init-cta__btn--primary { background: var(--crimson); color: #fff; }
+    .init-cta__btn--primary:hover { background: #a01830; gap: 18px; }
+    .init-cta__btn--outline { border: 1px solid var(--border); color: var(--ink-light); }
+    .init-cta__btn--outline:hover { border-color: var(--crimson); color: var(--crimson); gap: 18px; }
+    .init-cta__btn::after { content: '→'; font-size: 13px; }
+
+    /* ── ACCORDION TOGGLE ── */
+    .init-platform__toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      background: none;
+      border: none;
+      border-left: 1px solid var(--border);
+      cursor: pointer;
+      flex-shrink: 0;
+      padding: 0;
+      transition: background 0.2s;
+    }
+    .init-platform__toggle:hover { background: var(--cream-dark); }
+
+    .init-platform__toggle-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--crimson);
+      line-height: 1;
+      transition: transform 0.35s cubic-bezier(0.77,0,0.18,1);
+      user-select: none;
+    }
+    .init-platform--open .init-platform__toggle-icon {
+      transform: rotate(45deg);
+    }
+
+    /* Collapsible body */
+    .init-platform__body-wrap {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.5s cubic-bezier(0.77,0,0.18,1);
+    }
+    .init-platform--open .init-platform__body-wrap {
+      max-height: 1000px;
+    }
+
+    /* Owner bar also hidden when collapsed */
+    .init-platform__owner {
+      display: none;
+    }
+    .init-platform--open .init-platform__owner {
+      display: flex;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .init-hero { grid-template-columns: 1fr; }
+      .init-hero__text {
+        padding: 60px 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .init-hero__pillar { padding: 28px 24px; }
+
+      .init-platform__header { grid-template-columns: 56px 1fr 56px; }
+      .init-platform__summary { display: none; }
+      .init-platform__title-wrap { border-right: none; padding: 24px; }
+      .init-platform__num { font-size: 28px; }
+
+      .init-platform__body { grid-template-columns: 1fr; }
+      .init-card { border-right: none; border-bottom: 1px solid var(--border); padding: 36px 24px; }
+      .init-card:last-child { border-bottom: none; }
+
+      .init-platform__owner { padding: 16px 24px; flex-wrap: wrap; }
+
+      .init-council { grid-template-columns: 1fr; gap: 40px; padding: 60px 24px; }
+      .init-council__areas { grid-template-columns: 1fr; }
+
+      .init-cta { grid-template-columns: 1fr; padding: 60px 24px; gap: 36px; }
+      .init-cta__actions { flex-direction: row; flex-wrap: wrap; }
+    }
+  </style>
 </head>
 
 <body>
+
+  <!-- ─── NAV ─── -->
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" role="banner">
     <div class="container header__inner">
-      <a class="brand" href="index.html">Harvard 2026</a>
+      <a class="brand" href="index.html">Harvard 2027</a>
       <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="nav-toggle__bar"></span>
@@ -40,7 +512,6 @@
           <li><a href="index.html" data-nav>Home</a></li>
           <li><a href="about.html" data-nav>About</a></li>
           <li><a href="initiatives.html" data-nav>Initiatives</a></li>
-          <!-- <li><a href="testimonials.html" data-nav>Testimonials</a></li> -->
           <li><a href="assets/HenryPreetham.pdf" download="Position Paper">Position Paper</a></li>
           <li><a href="contact.html" data-nav>Contact</a></li>
         </ul>
@@ -48,189 +519,350 @@
     </div>
   </header>
 
-  <main id="main" class="container initiatives">
-    <h1>Initiatives</h1>
+  <main id="main">
 
-    <div class="accordion">
-      <!-- Category 1: Education -->
-      <div class="accordion__item">
-        <button class="accordion__trigger" aria-expanded="true" aria-controls="panel-1">
-          <span>Opportunities: More, better, for all</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
-        </button>
-        <div id="panel-1" class="accordion__panel">
-          <div class="accordion__panel-inner">
-            <div class="card">
-              <h3 class="card__header">Academic Resources</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>Improve study spaces and resources</li>
-                  <li>Enhance course feedback systems</li>
-                  <li>Support for academic mental health</li>
-                  <li>Digital learning tool accessibility</li>
-                </ul>
-              </div>
-            </div>
-            <div class="card">
-              <h3 class="card__header">Faculty Engagement</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>Increased career services and networking</li>
-                  <li>Industry mentorship programs</li>
-                  <li>Professional skill workshops</li>
-                  <li>Alumni connection initiatives</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+    <!-- ── HERO ── -->
+    <section class="init-hero">
+      <div class="init-hero__text">
+        <div class="init-hero__tag">Our Platform · Class of 2027</div>
+        <h1 class="init-hero__headline">
+          Three<br/>pillars.<br/><em>One</em><br/>class.
+        </h1>
+        <p class="init-hero__subhead">
+          Concrete, achievable initiatives built around what you told us you came here for. Not promises — a plan.
+        </p>
       </div>
 
-      <!-- Category 2: Student Life -->
-      <div class="accordion__item">
-        <button class="accordion__trigger" aria-expanded="false" aria-controls="panel-2">
-          <span>Community: One HBS, one Harvard, lifelong</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
-        </button>
-        <div id="panel-2" class="accordion__panel">
-          <div class="accordion__panel-inner">
-            <div class="card">
-              <h3 class="card__header">Campus Inclusion</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>Inclusive campus events and programming</li>
-                  <li>Support for diverse student organizations</li>
-                  <li>Mental health and wellness initiatives</li>
-                  <li>Campus safety and security improvements</li>
-                </ul>
-              </div>
-            </div>
-            <div class="card">
-              <h3 class="card__header">Residential Life</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>Upgrading common area facilities in houses</li>
-                  <li>Increasing funding for house committee social events</li>
-                  <li>Improving laundry room maintenance and reporting</li>
-                  <li>Enhancing student-led dorm safety initiatives</li>
-                </ul>
-              </div>
-            </div>
+      <div class="init-hero__pillars">
+        <a class="init-hero__pillar" href="#opportunity">
+          <div class="init-hero__pillar-num">01</div>
+          <div class="init-hero__pillar-text">
+            <div class="init-hero__pillar-name">Opportunity</div>
+            <div class="init-hero__pillar-tagline">More, better, for all</div>
           </div>
+        </a>
+        <a class="init-hero__pillar" href="#connection">
+          <div class="init-hero__pillar-num">02</div>
+          <div class="init-hero__pillar-text">
+            <div class="init-hero__pillar-name">Connection</div>
+            <div class="init-hero__pillar-tagline">One HBS, one Harvard, lifelong</div>
+          </div>
+        </a>
+        <a class="init-hero__pillar" href="#experience">
+          <div class="init-hero__pillar-num">03</div>
+          <div class="init-hero__pillar-text">
+            <div class="init-hero__pillar-name">Experience</div>
+            <div class="init-hero__pillar-tagline">The little things, taken care of</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════
+         PLATFORM 1: OPPORTUNITY
+    ══════════════════════════════════ -->
+    <section class="init-platform" id="opportunity">
+      <div class="init-platform__header">
+        <div class="init-platform__num">01</div>
+        <div class="init-platform__title-wrap">
+          <div class="init-platform__label">Platform One</div>
+          <div class="init-platform__title">Opportunity</div>
         </div>
+        <div class="init-platform__summary">
+          <p>Access shouldn't depend on your passport or your bank account. We're opening new doors — for international students, aspiring founders, and anyone priced out of the experience.</p>
+        </div>
+        <button class="init-platform__toggle" aria-label="Expand Opportunity initiatives">
+          <span class="init-platform__toggle-icon">+</span>
+        </button>
       </div>
 
-      <!-- Category 3: Career -->
-      <div class="accordion__item">
-        <button class="accordion__trigger" aria-expanded="false" aria-controls="panel-3">
-          <span>The Little Things: Taken Care Of</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
-        </button>
-        <div id="panel-3" class="accordion__panel">
-          <div class="accordion__panel-inner">
-            <div class="card">
-              <h3 class="card__header">Professional Growth</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>New specialized recruiting guides for diverse industries</li>
-                  <li>Expanding the global alumni mentor database</li>
-                  <li>Weekly resume and cover letter peer-review clinics</li>
-                  <li>Partnerships with local startups for student roles</li>
-                </ul>
-              </div>
-            </div>
-            <div class="card">
-              <h3 class="card__header">Internship Support</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>New grants for unpaid internship positions</li>
-                  <li>Expanding the global alumni mentor network</li>
-                  <li>Weekly resume and cover letter clinics</li>
-                  <li>Partnerships with local startups for student roles</li>
-                </ul>
-              </div>
-            </div>
+      <div class="init-platform__body-wrap">
+      <div class="init-platform__body">
+
+        <div class="init-card">
+          <span class="init-card__icon">🌍</span>
+          <h3 class="init-card__title">Recruitment</h3>
+          <p class="init-card__body">The job market is harder than it's been in years. For international students, it's even harder. We're changing the infrastructure — not just the conversation.</p>
+          <div class="init-card__items">
+            <div class="init-card__item">Student-led sourcing: tap our own cohort to surface off-cycle and non-traditional roles</div>
+            <div class="init-card__item">Work with CPD to expand the base of companies actively sponsoring international students</div>
+            <div class="init-card__item">Advocate for travel and absence flexibility tied to recruiting timelines</div>
+            <div class="init-card__item">Dedicated support for students pursuing non-traditional or international career paths</div>
           </div>
         </div>
+
+        <div class="init-card">
+          <span class="init-card__icon">🚀</span>
+          <h3 class="init-card__title">Entrepreneurship</h3>
+          <p class="init-card__body">HBS should be the best place in the world to start something. Right now, finding the right co-founder or technical advisor feels like luck. We're making it a system.</p>
+          <div class="init-card__items">
+            <div class="init-card__item">Co-founder matching: structured program to connect MBAs with complementary skills</div>
+            <div class="init-card__item">Curated access to subject matter experts (SMEs) who want to work with HBS students</div>
+            <div class="init-card__item">Bridge to the broader Harvard and Boston startup ecosystem</div>
+            <div class="init-card__item">Programming for students at idea-stage, not just those already funded</div>
+          </div>
+        </div>
+
+        <div class="init-card">
+          <span class="init-card__icon">💸</span>
+          <h3 class="init-card__title">Affordability</h3>
+          <p class="init-card__body">Paying $50 to attend a section event shouldn't be the norm. Participating in HBS life shouldn't require a discretionary budget. We're changing that.</p>
+          <div class="init-card__items">
+            <div class="init-card__item">Secure sponsorships from local Boston businesses to subsidise section events</div>
+            <div class="init-card__item">Create a transparent fund for students who can't cover event costs</div>
+            <div class="init-card__item">Negotiate group discounts on section gear (Patagonias, etc.)</div>
+            <div class="init-card__item">Ensure cost is never a barrier to being part of the community</div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Category 4: Advocacy -->
-      <!-- <div class="accordion__item">
-        <button class="accordion__trigger" aria-expanded="false" aria-controls="panel-4">
-          <span>Advocacy & Representation</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
-        </button>
-        <div id="panel-4" class="accordion__panel">
-          <div class="accordion__panel-inner">
-            <div class="card">
-              <h3 class="card__header">Student Voice</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>Monthly town halls with section representatives</li>
-                  <li>Simplifying student government petition processes</li>
-                  <li>Improving transparency for student fee allocation</li>
-                  <li>Lobbying for expanded student health insurance coverage</li>
-                </ul>
-              </div>
-            </div>
-            <div class="card">
-              <h3 class="card__header">Policy Reform</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>Simplifying student government election rules</li>
-                  <li>Encouraging direct petitions to the administration</li>
-                  <li>Improving transparency for student fee allocation</li>
-                  <li>Regular town halls with student representatives</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
+      </div><!-- end body -->
 
-      <!-- Category 5: Sustainability -->
-      <!-- <div class="accordion__item">
-        <button class="accordion__trigger" aria-expanded="false" aria-controls="panel-5">
-          <span>Sustainable Future & Innovation</span>
-          <span class="accordion__icon" aria-hidden="true"></span>
+      <div class="init-platform__owner">
+        <div class="init-platform__owner-label">Lead Candidate</div>
+        <div class="init-platform__owner-divider"></div>
+        <div class="init-platform__owner-name">Akaash Preetham</div>
+        <span class="init-platform__owner-tag">International Student · Section B</span>
+        <div class="init-platform__owner-divider"></div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink-light);font-weight:300;font-style:italic;">"I've lived this. That's why I'm fighting for it."</div>
+      </div>
+      </div><!-- end body-wrap -->
+    </section>
+
+    <!-- ══════════════════════════════════
+         PLATFORM 2: CONNECTION
+    ══════════════════════════════════ -->
+    <section class="init-platform" id="connection">
+      <div class="init-platform__header">
+        <div class="init-platform__num">02</div>
+        <div class="init-platform__title-wrap">
+          <div class="init-platform__label">Platform Two</div>
+          <div class="init-platform__title">Connection</div>
+        </div>
+        <div class="init-platform__summary">
+          <p>People lie at the center of the MBA experience. We want to build a sense of oneness — within HBS, across Harvard, and beyond. Community by design, not by accident.</p>
+        </div>
+        <button class="init-platform__toggle" aria-label="Expand Connection initiatives">
+          <span class="init-platform__toggle-icon">+</span>
         </button>
-        <div id="panel-5" class="accordion__panel">
-          <div class="accordion__panel-inner">
-            <div class="card">
-              <h3 class="card__header">Green Campus Initiatives</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>Expansion of zero-waste campus dining programs</li>
-                  <li>Increasing rooftop solar capacity on campus buildings</li>
-                  <li>Grants for student-led sustainability research projects</li>
-                  <li>Partnerships with local environmental nonprofits</li>
-                </ul>
-              </div>
-            </div>
-            <div class="card">
-              <h3 class="card__header">Innovation Grants</h3>
-              <div class="card__body">
-                <ul class="list--bulleted">
-                  <li>Funding for student-led tech startups</li>
-                  <li>Incubator space for community-focused projects</li>
-                  <li>Workshops on Social Entrepreneurship</li>
-                  <li>Connecting student innovators with venture capital</li>
-                </ul>
-              </div>
-            </div>
+      </div>
+
+      <div class="init-platform__body-wrap">
+      <div class="init-platform__body">
+
+        <div class="init-card">
+          <span class="init-card__icon">🏛️</span>
+          <h3 class="init-card__title">One HBS</h3>
+          <p class="init-card__body">HBS has a strong section culture — but our class rarely comes together as one. That needs to change.</p>
+          <div class="init-card__items">
+            <div class="init-card__item">Klarman MyTakes: bring back class-wide intellectual gatherings at Klarman</div>
+            <div class="init-card__item">Flag Day reimagined as a full community event, inclusive of families and partners</div>
+            <div class="init-card__item">SA Happy Hours, Game Days, and Movie Screenings across sections</div>
+            <div class="init-card__item">Community Days that bring the whole class — not just your section — into one room</div>
           </div>
         </div>
-      </div> -->
+
+        <div class="init-card">
+          <span class="init-card__icon">🤝</span>
+          <h3 class="init-card__title">One Harvard</h3>
+          <p class="init-card__body">The Harvard ecosystem is one of the most powerful networks in the world. Right now, most MBAs graduate having barely touched it. We're fixing that.</p>
+          <div class="init-card__items">
+            <div class="init-card__item">Dedicated outreach and programming with Harvard Law, Kennedy School, and the Med School</div>
+            <div class="init-card__item">Joint academic panels, social events, and professional mixers across grad schools</div>
+            <div class="init-card__item">Co-founder and collaborator pipeline from the broader Harvard community</div>
+            <div class="init-card__item">Extend outreach to peer universities (MIT, etc.) for cross-school events</div>
+          </div>
+        </div>
+
+        <div class="init-card">
+          <span class="init-card__icon">♾️</span>
+          <h3 class="init-card__title">Lifelong</h3>
+          <p class="init-card__body">The Class of 2027 should be a network you rely on for decades. We're building the infrastructure for that now.</p>
+          <div class="init-card__items">
+            <div class="init-card__item">Rotating section rep council to ensure every corner of the class has a voice</div>
+            <div class="init-card__item">Build programming that includes partners and families — HBS is a life, not just a campus</div>
+            <div class="init-card__item">Alumni connection initiatives launching during RC year, not just post-graduation</div>
+            <div class="init-card__item">Digital community infrastructure to sustain connections beyond Cambridge</div>
+          </div>
+        </div>
+
+      </div>
+
+      </div><!-- end body -->
+
+      <div class="init-platform__owner">
+        <div class="init-platform__owner-label">Lead Candidate</div>
+        <div class="init-platform__owner-divider"></div>
+        <div class="init-platform__owner-name">Dimitri Henry</div>
+        <span class="init-platform__owner-tag">Dual Degree HBS + HKS · Section J</span>
+        <div class="init-platform__owner-divider"></div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink-light);font-weight:300;font-style:italic;">"I've seen what's possible when you cross the river. Every HBS student deserves that."</div>
+      </div>
+      </div><!-- end body-wrap -->
+    </section>
+
+    <!-- ══════════════════════════════════
+         PLATFORM 3: EXPERIENCE
+    ══════════════════════════════════ -->
+    <section class="init-platform" id="experience">
+      <div class="init-platform__header">
+        <div class="init-platform__num">03</div>
+        <div class="init-platform__title-wrap">
+          <div class="init-platform__label">Platform Three</div>
+          <div class="init-platform__title">Experience</div>
+        </div>
+        <div class="init-platform__summary">
+          <p>The big vision matters — but so does Wednesday morning. As section presidents, we've seen the small things that pile up. We know how to fix them.</p>
+        </div>
+        <button class="init-platform__toggle" aria-label="Expand Experience initiatives">
+          <span class="init-platform__toggle-icon">+</span>
+        </button>
+      </div>
+
+      <div class="init-platform__body-wrap">
+      <div class="init-platform__body">
+
+        <div class="init-card">
+          <span class="init-card__icon">📅</span>
+          <h3 class="init-card__title">Scheduling & Flexibility</h3>
+          <p class="init-card__body">HBS can be all-consuming. It doesn't have to be. Your schedule should work for your life, not against it.</p>
+          <div class="init-card__items">
+            <div class="init-card__item">Advocate for scheduling that respects recruiting, travel, and personal commitments</div>
+            <div class="init-card__item">Concrete, published criteria for when classes are hybrid vs. in-person — no more guessing</div>
+            <div class="init-card__item">Travel flexibility for family emergencies and life events without academic penalty</div>
+            <div class="init-card__item">Better advance notice for schedule changes and exam conflicts</div>
+          </div>
+        </div>
+
+        <div class="init-card">
+          <span class="init-card__icon">🚨</span>
+          <h3 class="init-card__title">Safety & Emergency Response</h3>
+          <p class="init-card__body">When something goes wrong, the response should be fast, clear, and trustworthy. We're working to get there.</p>
+          <div class="init-card__items">
+            <div class="init-card__item">Streamlined emergency communication protocols across sections and administration</div>
+            <div class="init-card__item">Faster and more transparent incident response procedures</div>
+            <div class="init-card__item">Regular safety briefings and updated resources for international students</div>
+            <div class="init-card__item">Mental health and crisis support that's easy to access, not hard to find</div>
+          </div>
+        </div>
+
+        <div class="init-card">
+          <span class="init-card__icon">✨</span>
+          <h3 class="init-card__title">Daily Life</h3>
+          <p class="init-card__body">What you'll remember about HBS is how it made you feel. Getting the small stuff right is how we make it feel like home.</p>
+          <div class="init-card__items">
+            <div class="init-card__item">Sponsorships to make section events and social life genuinely affordable</div>
+            <div class="init-card__item">Streamlined administrative communication — fewer mixed messages, more clarity</div>
+            <div class="init-card__item">Making partners and families feel included and welcomed on campus</div>
+            <div class="init-card__item">Advocacy for student-friendly policies across all aspects of campus life</div>
+          </div>
+        </div>
+
+      </div>
+
+      </div><!-- end body -->
+
+      <div class="init-platform__owner">
+        <div class="init-platform__owner-label">Lead Candidates</div>
+        <div class="init-platform__owner-divider"></div>
+        <div class="init-platform__owner-name">Akaash & Dimitri</div>
+        <span class="init-platform__owner-tag">Both Section Presidents</span>
+        <div class="init-platform__owner-divider"></div>
+        <div style="font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink-light);font-weight:300;font-style:italic;">"We've navigated the administration. We know how to get things done."</div>
+      </div>
+      </div><!-- end body-wrap -->
+    </section>
+
+    <!-- ── HOW WE WORK ── -->
+    <section class="init-council">
+      <div>
+        <div class="init-council__label">How We Govern</div>
+        <h2 class="init-council__title">A rotating council.<br/><em>Every voice heard.</em></h2>
+        <p class="init-council__body">
+          We'll work with a rotating council of section reps and campus leaders across areas that matter most. These aren't token roles — they're how we stay accountable to all 900 of you.
+        </p>
+      </div>
+      <div class="init-council__areas">
+        <div class="init-council__area">
+          <div class="init-council__area-icon">👩‍💼</div>
+          <div class="init-council__area-name">Women's Representation</div>
+          <div class="init-council__area-desc">Dedicated voice & programming</div>
+        </div>
+        <div class="init-council__area">
+          <div class="init-council__area-icon">🎖️</div>
+          <div class="init-council__area-name">Veterans' Affairs</div>
+          <div class="init-council__area-desc">Support & recognition</div>
+        </div>
+        <div class="init-council__area">
+          <div class="init-council__area-icon">🌐</div>
+          <div class="init-council__area-name">International Students</div>
+          <div class="init-council__area-desc">Visa, recruiting & belonging</div>
+        </div>
+        <div class="init-council__area">
+          <div class="init-council__area-icon">🤲</div>
+          <div class="init-council__area-name">Community Inclusion</div>
+          <div class="init-council__area-desc">Belonging for everyone</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <div class="init-cta">
+      <div>
+        <div class="init-cta__label">Have a concern or idea?</div>
+        <h2 class="init-cta__title">
+          This platform was built<br/>on <em>what you told us.</em>
+        </h2>
+      </div>
+      <div class="init-cta__actions">
+        <a class="init-cta__btn init-cta__btn--primary" href="https://forms.gle/sTQ7aEGLLmdh7eTe7" target="_blank" rel="noopener noreferrer">
+          Share your input
+        </a>
+        <a class="init-cta__btn init-cta__btn--outline" href="contact.html">
+          Contact us directly
+        </a>
+      </div>
     </div>
+
   </main>
 
+  <!-- ─── FOOTER ─── -->
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; <span id="year"></span> Harvard 2026. Forward Together.</p>
+      <p>&copy; <span id="year"></span> Harvard 2027. Built with purpose.</p>
     </div>
   </footer>
 
   <script src="js/main.js" defer></script>
-</body>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Accordion toggle
+    document.querySelectorAll('.init-platform__toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var platform = btn.closest('.init-platform');
+        var isOpen = platform.classList.contains('init-platform--open');
+
+        // Close all
+        document.querySelectorAll('.init-platform').forEach(function(p) {
+          p.classList.remove('init-platform--open');
+          p.querySelector('.init-platform__toggle').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked one if it wasn't already open
+        if (!isOpen) {
+          platform.classList.add('init-platform--open');
+          btn.setAttribute('aria-expanded', 'true');
+
+          // Smooth scroll to section
+          setTimeout(function() {
+            platform.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 50);
+        }
+      });
+    });
+  </script>
+
+</body>
 </html>
