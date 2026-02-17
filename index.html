@@ -84,24 +84,61 @@
       font-weight: 700;
     }
 
-    /* ── HERO: two column ── */
+    /* ── NAV OVERRIDE — editorial style ── */
+    .site-header {
+      background: var(--cream) !important;
+      border-bottom: 1px solid var(--border) !important;
+      box-shadow: none !important;
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif !important;
+      font-size: 20px !important;
+      font-weight: 700 !important;
+      color: var(--ink) !important;
+      letter-spacing: 0 !important;
+      text-decoration: none !important;
+    }
+    .primary-nav a {
+      font-family: 'Space Mono', monospace !important;
+      font-size: 10px !important;
+      letter-spacing: 2px !important;
+      text-transform: uppercase !important;
+      color: var(--ink-light) !important;
+      text-decoration: none !important;
+      transition: color 0.2s !important;
+      padding-bottom: 2px !important;
+    }
+    .primary-nav a:hover,
+    .primary-nav a[data-nav].active {
+      color: var(--crimson) !important;
+      border-bottom: 1px solid var(--crimson) !important;
+    }
+    .nav-toggle__bar {
+      background: var(--ink) !important;
+    }
+
+    /* ── HERO: stacked — text on top, full video below ── */
     .home-hero {
-      display: grid;
-      grid-template-columns: 1fr 1.6fr;
-      min-height: calc(100vh - 44px - 64px); /* subtract banner + nav */
+      display: flex;
+      flex-direction: column;
       border-bottom: 1px solid var(--border);
     }
 
-    /* Left: editorial text */
+    /* Top text strip */
     .home-hero__text {
-      padding: 80px 60px 80px 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Left: headline */
+    .home-hero__left {
+      padding: 60px 60px 60px 60px;
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
-
-    .home-hero__top {}
 
     .home-hero__tag {
       font-family: 'Space Mono', monospace;
@@ -109,7 +146,7 @@
       letter-spacing: 4px;
       text-transform: uppercase;
       color: var(--crimson);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -124,11 +161,11 @@
 
     .home-hero__headline {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(44px, 5vw, 72px);
+      font-size: clamp(44px, 4.5vw, 68px);
       font-weight: 700;
       line-height: 0.95;
       color: var(--ink);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       letter-spacing: -1px;
     }
     .home-hero__headline em {
@@ -138,43 +175,52 @@
 
     .home-hero__subhead {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: 17px;
       line-height: 1.75;
       color: var(--ink-mid);
       font-weight: 300;
       font-style: italic;
       border-left: 2px solid var(--crimson);
       padding-left: 20px;
-      margin-bottom: 48px;
-      max-width: 360px;
     }
 
-    /* Pillars list */
+    /* Middle: pillars */
     .home-hero__pillars {
+      border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      gap: 0;
-      border-top: 1px solid var(--border);
+      justify-content: flex-end;
+    }
+
+    .home-hero__pillars-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      padding: 28px 40px 16px;
+      border-bottom: 1px solid var(--border);
     }
 
     .home-hero__pillar {
       display: flex;
       align-items: center;
-      gap: 20px;
-      padding: 18px 0;
+      gap: 16px;
+      padding: 20px 40px;
       border-bottom: 1px solid var(--border);
       text-decoration: none;
       color: inherit;
-      transition: padding-left 0.2s;
+      transition: background 0.2s, padding-left 0.2s;
     }
-    .home-hero__pillar:hover { padding-left: 8px; }
+    .home-hero__pillar:last-child { border-bottom: none; }
+    .home-hero__pillar:hover { background: var(--cream-dark); padding-left: 48px; }
 
     .home-hero__pillar-num {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 14px;
+      font-size: 13px;
       color: var(--crimson);
       font-weight: 700;
-      width: 24px;
+      width: 20px;
       flex-shrink: 0;
     }
     .home-hero__pillar-name {
@@ -193,7 +239,7 @@
     }
     .home-hero__pillar-arrow {
       color: var(--border);
-      font-size: 16px;
+      font-size: 14px;
       transition: color 0.2s, transform 0.2s;
     }
     .home-hero__pillar:hover .home-hero__pillar-arrow {
@@ -201,20 +247,30 @@
       transform: translateX(4px);
     }
 
-    /* Bottom: candidate names */
+    /* Right: candidates + sound nudge */
+    .home-hero__right {
+      padding: 40px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .home-hero__candidates {
       display: flex;
-      gap: 32px;
-      padding-top: 32px;
+      flex-direction: column;
+      gap: 20px;
     }
     .home-hero__candidate {
       display: flex;
       flex-direction: column;
       gap: 4px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
     }
+    .home-hero__candidate:last-child { border-bottom: none; padding-bottom: 0; }
     .home-hero__candidate-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 700;
       color: var(--ink);
     }
@@ -225,37 +281,60 @@
       text-transform: uppercase;
       color: var(--crimson);
     }
-    .home-hero__candidate-divider {
-      width: 1px;
-      background: var(--border);
-      align-self: stretch;
+
+    /* Sound nudge */
+    .home-hero__sound-nudge {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      background: var(--cream-dark);
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .home-hero__sound-nudge:hover { border-color: var(--crimson); }
+    .home-hero__sound-nudge-icon { font-size: 18px; }
+    .home-hero__sound-nudge-text {
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      flex: 1;
+    }
+    .home-hero__sound-nudge-arrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      color: var(--crimson);
     }
 
-    /* Right: video */
+    /* Full video section */
     .home-hero__video-wrap {
       background: var(--ink);
       position: relative;
-      display: flex;
-      flex-direction: column;
+      width: 100%;
     }
 
     .home-hero__video-label {
       position: absolute;
-      top: 28px;
-      left: 28px;
+      top: 20px;
+      left: 24px;
       font-family: 'Space Mono', monospace;
       font-size: 9px;
       letter-spacing: 3px;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.35);
       z-index: 2;
+      pointer-events: none;
     }
 
     .home-hero__video {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
+      max-height: 80vh;
+      object-fit: contain;
+      background: #000;
     }
 
     /* Custom video controls overlay */
@@ -265,7 +344,7 @@
       left: 0;
       right: 0;
       padding: 20px 28px;
-      background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
       display: flex;
       align-items: center;
       gap: 16px;
@@ -314,6 +393,23 @@
       color: rgba(255,255,255,0.5);
       flex-shrink: 0;
     }
+
+    .home-hero__mute-btn {
+      background: none;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: #fff;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      flex-shrink: 0;
+      padding: 0;
+    }
+    .home-hero__mute-btn:hover { border-color: var(--crimson); }
+    .home-hero__mute-btn svg { width: 14px; height: 14px; }
 
     .home-hero__fullscreen-btn {
       background: none;
@@ -514,14 +610,15 @@
       .vote-banner { flex-wrap: wrap; gap: 8px; padding: 10px 16px; }
       .vote-banner__divider { display: none; }
 
-      .home-hero { grid-template-columns: 1fr; min-height: auto; }
-      .home-hero__text {
+      .home-hero__text { grid-template-columns: 1fr; }
+      .home-hero__left {
         padding: 48px 24px;
         border-right: none;
         border-bottom: 1px solid var(--border);
-        gap: 32px;
       }
-      .home-hero__video-wrap { min-height: 60vw; }
+      .home-hero__pillars { border-right: none; border-bottom: 1px solid var(--border); }
+      .home-hero__right { padding: 32px 24px; }
+      .home-hero__video { max-height: none; }
 
       .home-stats { padding: 0 24px; flex-wrap: wrap; }
       .home-stats__item { flex: 1 0 50%; border-right: none; border-bottom: 1px solid #2a2a2a; }
@@ -574,55 +671,69 @@
     <!-- ── HERO ── -->
     <section class="home-hero" aria-label="Campaign introduction">
 
-      <!-- Left: editorial text -->
+      <!-- Top: three column text strip -->
       <div class="home-hero__text">
-        <div class="home-hero__top">
-          <div class="home-hero__tag">SA Co-Presidents · Class of 2027</div>
 
-          <h1 class="home-hero__headline">
-            The HBS<br/>you came<br/><em>here for.</em>
-          </h1>
-
+        <!-- Column 1: Headline -->
+        <div class="home-hero__left">
+          <div>
+            <div class="home-hero__tag">SA Co-Presidents · Class of 2027</div>
+            <h1 class="home-hero__headline">
+              The HBS<br/>you came<br/><em>here for.</em>
+            </h1>
+          </div>
           <p class="home-hero__subhead">
             You chose HBS for a reason. You had expectations. We're running to make sure HBS delivers on every single one of them.
           </p>
-
-          <nav class="home-hero__pillars" aria-label="Platform pillars">
-            <a class="home-hero__pillar" href="initiatives.html#opportunity">
-              <span class="home-hero__pillar-num">01</span>
-              <span class="home-hero__pillar-name">Opportunity</span>
-              <span class="home-hero__pillar-tag">Access for all</span>
-              <span class="home-hero__pillar-arrow">→</span>
-            </a>
-            <a class="home-hero__pillar" href="initiatives.html#connection">
-              <span class="home-hero__pillar-num">02</span>
-              <span class="home-hero__pillar-name">Connection</span>
-              <span class="home-hero__pillar-tag">One HBS, one Harvard</span>
-              <span class="home-hero__pillar-arrow">→</span>
-            </a>
-            <a class="home-hero__pillar" href="initiatives.html#experience">
-              <span class="home-hero__pillar-num">03</span>
-              <span class="home-hero__pillar-name">Experience</span>
-              <span class="home-hero__pillar-tag">The little things, done right</span>
-              <span class="home-hero__pillar-arrow">→</span>
-            </a>
-          </nav>
         </div>
 
-        <div class="home-hero__candidates">
-          <div class="home-hero__candidate">
-            <div class="home-hero__candidate-name">Akaash Preetham</div>
-            <div class="home-hero__candidate-meta">Section B · Chennai, India</div>
+        <!-- Column 2: Platform pillars -->
+        <nav class="home-hero__pillars" aria-label="Platform pillars">
+          <div class="home-hero__pillars-label">Our platforms</div>
+          <a class="home-hero__pillar" href="initiatives.html#opportunity">
+            <span class="home-hero__pillar-num">01</span>
+            <span class="home-hero__pillar-name">Opportunity</span>
+            <span class="home-hero__pillar-tag">Access for all</span>
+            <span class="home-hero__pillar-arrow">→</span>
+          </a>
+          <a class="home-hero__pillar" href="initiatives.html#connection">
+            <span class="home-hero__pillar-num">02</span>
+            <span class="home-hero__pillar-name">Connection</span>
+            <span class="home-hero__pillar-tag">One HBS, one Harvard</span>
+            <span class="home-hero__pillar-arrow">→</span>
+          </a>
+          <a class="home-hero__pillar" href="initiatives.html#experience">
+            <span class="home-hero__pillar-num">03</span>
+            <span class="home-hero__pillar-name">Experience</span>
+            <span class="home-hero__pillar-tag">The little things, done right</span>
+            <span class="home-hero__pillar-arrow">→</span>
+          </a>
+        </nav>
+
+        <!-- Column 3: Candidates + sound nudge -->
+        <div class="home-hero__right">
+          <div class="home-hero__candidates">
+            <div class="home-hero__candidate">
+              <div class="home-hero__candidate-name">Akaash Preetham</div>
+              <div class="home-hero__candidate-meta">Section B · Chennai, India</div>
+            </div>
+            <div class="home-hero__candidate">
+              <div class="home-hero__candidate-name">Dimitri Henry</div>
+              <div class="home-hero__candidate-meta">Section J · HBS + HKS</div>
+            </div>
           </div>
-          <div class="home-hero__candidate-divider"></div>
-          <div class="home-hero__candidate">
-            <div class="home-hero__candidate-name">Dimitri Henry</div>
-            <div class="home-hero__candidate-meta">Section J · HBS + HKS</div>
-          </div>
+
+          <!-- Sound nudge — clicking unmutes the video -->
+          <button class="home-hero__sound-nudge" id="sound-nudge" aria-label="Turn on sound">
+            <span class="home-hero__sound-nudge-icon">🔇</span>
+            <span class="home-hero__sound-nudge-text" id="sound-nudge-text">Tap to turn on sound</span>
+            <span class="home-hero__sound-nudge-arrow">→</span>
+          </button>
         </div>
+
       </div>
 
-      <!-- Right: video -->
+      <!-- Bottom: full width video -->
       <div class="home-hero__video-wrap">
         <div class="home-hero__video-label">Campaign Video</div>
 
@@ -639,14 +750,11 @@
           Your browser does not support the video tag.
         </video>
 
-        <!-- Custom controls overlay -->
         <div class="home-hero__controls">
           <button class="home-hero__ctrl-btn" id="play-pause-btn" aria-label="Play / Pause">
-            <!-- Play icon (shown when paused) -->
             <svg id="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <polygon points="5 3 19 12 5 21 5 3"></polygon>
             </svg>
-            <!-- Pause icon (hidden when playing) -->
             <svg id="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
               <rect x="6" y="4" width="4" height="16"></rect>
               <rect x="14" y="4" width="4" height="16"></rect>
@@ -658,6 +766,19 @@
           </div>
 
           <span class="home-hero__time" id="video-time">0:00</span>
+
+          <!-- Mute/unmute button in controls too -->
+          <button class="home-hero__mute-btn" id="mute-btn" aria-label="Toggle mute">
+            <svg id="icon-muted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+            <svg id="icon-unmuted" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            </svg>
+          </button>
 
           <button class="home-hero__fullscreen-btn" id="fullscreen-btn" aria-label="Fullscreen">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -756,15 +877,19 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // ── Video controls ──
-    var video = document.getElementById('hero-video');
-    var playBtn = document.getElementById('play-pause-btn');
-    var iconPlay = document.getElementById('icon-play');
-    var iconPause = document.getElementById('icon-pause');
+    var video        = document.getElementById('hero-video');
+    var playBtn      = document.getElementById('play-pause-btn');
+    var iconPlay     = document.getElementById('icon-play');
+    var iconPause    = document.getElementById('icon-pause');
     var progressFill = document.getElementById('progress-fill');
-    var progressBar = document.getElementById('progress-bar');
-    var timeDisplay = document.getElementById('video-time');
+    var progressBar  = document.getElementById('progress-bar');
+    var timeDisplay  = document.getElementById('video-time');
     var fullscreenBtn = document.getElementById('fullscreen-btn');
+    var muteBtn      = document.getElementById('mute-btn');
+    var iconMuted    = document.getElementById('icon-muted');
+    var iconUnmuted  = document.getElementById('icon-unmuted');
+    var soundNudge   = document.getElementById('sound-nudge');
+    var soundNudgeText = document.getElementById('sound-nudge-text');
 
     function formatTime(s) {
       var m = Math.floor(s / 60);
@@ -772,7 +897,21 @@
       return m + ':' + (sec < 10 ? '0' : '') + sec;
     }
 
-    // Show pause icon when playing (autoplay starts muted)
+    function updateMuteUI() {
+      if (video.muted) {
+        iconMuted.style.display = 'block';
+        iconUnmuted.style.display = 'none';
+        soundNudgeText.textContent = 'Tap to turn on sound';
+        soundNudge.querySelector('.home-hero__sound-nudge-icon').textContent = '🔇';
+      } else {
+        iconMuted.style.display = 'none';
+        iconUnmuted.style.display = 'block';
+        soundNudgeText.textContent = 'Sound is on';
+        soundNudge.querySelector('.home-hero__sound-nudge-icon').textContent = '🔊';
+      }
+    }
+
+    // Play/pause icons
     video.addEventListener('play', function() {
       iconPlay.style.display = 'none';
       iconPause.style.display = 'block';
@@ -782,17 +921,25 @@
       iconPause.style.display = 'none';
     });
 
-    // Play/pause toggle — unmutes on first interaction
+    // Play/pause button
     playBtn.addEventListener('click', function() {
-      if (video.paused) {
-        video.muted = false;
-        video.play();
-      } else {
-        video.pause();
-      }
+      if (video.paused) { video.play(); } else { video.pause(); }
     });
 
-    // Progress bar update
+    // Mute toggle (in controls bar)
+    muteBtn.addEventListener('click', function() {
+      video.muted = !video.muted;
+      updateMuteUI();
+    });
+
+    // Sound nudge (above video)
+    soundNudge.addEventListener('click', function() {
+      video.muted = !video.muted;
+      if (!video.paused === false) video.play();
+      updateMuteUI();
+    });
+
+    // Progress bar
     video.addEventListener('timeupdate', function() {
       if (video.duration) {
         var pct = (video.currentTime / video.duration) * 100;
@@ -813,6 +960,9 @@
       if (video.requestFullscreen) video.requestFullscreen();
       else if (video.webkitRequestFullscreen) video.webkitRequestFullscreen();
     });
+
+    // Init mute UI
+    updateMuteUI();
   </script>
 </body>
 </html>
