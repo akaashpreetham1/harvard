@@ -574,6 +574,26 @@
       font-weight: 700;
     }
 
+    .contact-form-card__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--crimson);
+      color: #fff;
+      font-family: 'Space Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 28px;
+      transition: background 0.2s, gap 0.2s;
+    }
+    .contact-form-card__btn:hover {
+      background: #a01830;
+      gap: 18px;
+    }
+    .contact-form-card__btn::after { content: '→'; font-size: 13px; }
+
     /* ── NAV OVERRIDE ── */
     .site-header {
       background: #f5f0e8 !important;
